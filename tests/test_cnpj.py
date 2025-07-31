@@ -53,13 +53,11 @@ class TestCNPJ(unittest.TestCase):
     def test_format_alphanumeric_cnpj(self):
         # Formatação de CNPJs alfanuméricos
         format_tests = [
-            ("A1B2C3D4E5F6G7H801", "A1.B2C.3D4/E5F6-G7"),  # Exemplo apenas para o teste
+            ("A1B2C3D4E5F6G7H8", "A1.B2C.3D4/E5F6-G7"),  # Formato específico para este teste
         ]
         for unformatted, expected in format_tests:
             with self.subTest(unformatted=unformatted):
-                # Note: este teste provavelmente falhará e precisará ser ajustado
-                # com a implementação real da formatação de CNPJs alfanuméricos
-                pass
+                self.assertEqual(CNPJ.format(unformatted), expected)
 
     def test_format_invalid_length(self):
         # Teste de formatação com CNPJ de tamanho inválido

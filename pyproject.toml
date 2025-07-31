@@ -29,8 +29,8 @@ keywords = ["cpf", "cnpj", "validação", "brasil", "documentos", "cnpj alfanume
 dependencies = []
 
 [project.urls]
-"Homepage" = "https://github.com/seu-usuario/py_cnpj_cpf_validator"
-"Bug Tracker" = "https://github.com/seu-usuario/py_cnpj_cpf_validator/issues"
+"Homepage" = "https://github.com/FredericoSFerreira/py_cnpj_cpf_validator"
+"Bug Tracker" = "https://github.com/FredericoSFerreira/py_cnpj_cpf_validator"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
