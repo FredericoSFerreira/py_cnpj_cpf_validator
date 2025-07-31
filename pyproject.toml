@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cnpj_cpf_validator"
+version = "0.1.0"
+description = "Biblioteca para validação de CPF e CNPJ brasileiros, incluindo suporte ao novo padrão alfanumérico"
+readme = "README.md"
+authors = [
+    {name = "Frederico Ferreira", email = "frederico.dida1@gmail.com"},
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Office/Business :: Financial",
+    "Natural Language :: Portuguese (Brazilian)",
+]
+keywords = ["cpf", "cnpj", "validação", "brasil", "documentos", "cnpj alfanumeric", "cnpj com letras", "validation", "validator", "govbr", "receita federal"]
+dependencies = []
+
+[project.urls]
+"Homepage" = "https://github.com/seu-usuario/py_cnpj_cpf_validator"
+"Bug Tracker" = "https://github.com/seu-usuario/py_cnpj_cpf_validator/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+
+[tool.isort]
+profile = "black"
