@@ -1,8 +1,10 @@
 # CNPJ/CPF Validator | Validador de CNPJ/CPF
 
-![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
-![Coverage](./coverage.svg)
-![License](https://img.shields.io/badge/license-MIT-green)
+![PyPI Version](https://img.shields.io/pypi/v/cnpj-cpf-validator.svg)
+![Python Versions](https://img.shields.io/pypi/pyversions/cnpj-cpf-validator.svg)
+![Downloads](https://img.shields.io/pypi/dm/cnpj-cpf-validator.svg)
+![Build Status](https://img.shields.io/github/actions/workflow/status/FredericoSFerreira/cnpj-cpf-validator/ci.yml?branch=main)
+![Coverage](https://fredericosferreira.github.io/cnpj-cpf-validator/coverage.svg)
 
 *Read this in: [English](#english) | [Português](#português)*
 
