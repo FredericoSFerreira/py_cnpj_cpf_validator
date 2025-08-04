@@ -4,7 +4,7 @@
 ![Python Versions](https://img.shields.io/pypi/pyversions/cnpj-cpf-validator.svg)
 ![Downloads](https://static.pepy.tech/badge/cnpj-cpf-validator/month)
 ![Publish Status](https://img.shields.io/github/actions/workflow/status/FredericoSFerreira/cnpj-cpf-validator/publish.yml?branch=main)
-![Coverage](https://fredericosferreira.github.io/cnpj-cpf-validator/coverage.svg)
+![Coverage](https://fredericosferreira.github.io/py_cnpj_cpf_validator/coverage.svg)
 
 *Read this in: [English](#english) | [Português](#português)*
 
