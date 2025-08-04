@@ -26,14 +26,22 @@ class CPF:
         if len(set(cpf)) == 1:
             return False
 
-        # Valida os dígitos verificadores
-        for i in range(9, 11):
-            valor = sum((int(cpf[num]) * ((i + 1) - num) for num in range(0, i)))
-            digito = ((valor * 10) % 11) % 10
-            if int(cpf[i]) != digito:
-                return False
+        # Cálculo do primeiro dígito verificador
+        soma = 0
+        for i in range(9):
+            soma += int(cpf[i]) * (10 - i)
+        resto = soma % 11
+        dv1 = 0 if resto < 2 else 11 - resto
 
-        return True
+        # Cálculo do segundo dígito verificador
+        soma = 0
+        for i in range(10):
+            soma += int(cpf[i]) * (11 - i)
+        resto = soma % 11
+        dv2 = 0 if resto < 2 else 11 - resto
+
+        # Verifica se os dígitos verificadores estão corretos
+        return int(cpf[9]) == dv1 and int(cpf[10]) == dv2
 
     @staticmethod
     def format(cpf: str) -> str:

@@ -9,6 +9,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     strategy:
       matrix:
         python-version: ['3.8', '3.9', '3.10', '3.11', '3.12', '3.13']
@@ -29,4 +31,19 @@ jobs:
 
     - name: Executar testes
       run: |
-        pytest tests/ --cov=src/cnpj_cpf_validator
+        pytest tests/ --cov=src/cnpj_cpf_validator --cov-report=xml
+
+          - name: Gerar badge de cobertura
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      uses: tj-actions/coverage-badge-py@v2
+      with:
+        output: coverage.svg
+
+          - name: Publicar badge de cobertura
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: ./
+        target-folder: ./
+        pattern: coverage.svg
+        token: ${{ secrets.GITHUB_TOKEN }}
