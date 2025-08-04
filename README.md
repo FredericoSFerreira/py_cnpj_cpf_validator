@@ -2,8 +2,8 @@
 
 ![PyPI Version](https://img.shields.io/pypi/v/cnpj-cpf-validator.svg)
 ![Python Versions](https://img.shields.io/pypi/pyversions/cnpj-cpf-validator.svg)
-![Downloads](https://img.shields.io/pypi/dm/cnpj-cpf-validator.svg)
-![Build Status](https://img.shields.io/github/actions/workflow/status/FredericoSFerreira/cnpj-cpf-validator/ci.yml?branch=main)
+![Downloads](https://static.pepy.tech/badge/cnpj-cpf-validator/month)
+![Publish Status](https://img.shields.io/github/actions/workflow/status/FredericoSFerreira/cnpj-cpf-validator/publish.yml?branch=main)
 ![Coverage](https://fredericosferreira.github.io/cnpj-cpf-validator/coverage.svg)
 
 *Read this in: [English](#english) | [Português](#português)*
