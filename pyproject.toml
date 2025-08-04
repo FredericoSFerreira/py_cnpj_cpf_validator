@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cnpj_cpf_validator"
-version = "0.1.1"
+version = "0.1.2"
 description = "Biblioteca para validação de CPF e CNPJ brasileiros, incluindo suporte ao novo padrão alfanumérico"
 readme = "README.md"
 authors = [
