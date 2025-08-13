@@ -1,5 +1,5 @@
 import unittest
-from cnpj_cpf_validator import CNPJ
+from src.cnpj_cpf_validator import CNPJ
 
 
 class TestCNPJ(unittest.TestCase):
@@ -36,8 +36,10 @@ class TestCNPJ(unittest.TestCase):
             "11.222.333/0001",  # Número insuficiente de dígitos
             "11.222.333/0001-812",  # Número excessivo de dígitos
             "A1B2.C3D4.E5F6/G7H8",  # Faltando dígitos verificadores
-            "A1B2.C3D4.E5F6/G7H8-XX",  # Dígitos verificadores não numéricos
-            "12ABC3450/1DE-36",  # DV inválido para o exemplo SERPRO
+            "11.222.333/0001-XX",  # Dígito verificador inválido
+            "12.ABC.345/01DE-36",  # DV inválido para o exemplo SERPRO
+            "AB.###.ABC/ABCD-36",
+            "12.ABC.345/01DE-XX",
         ]
         for cnpj in invalid_cnpjs:
             with self.subTest(cnpj=cnpj):
