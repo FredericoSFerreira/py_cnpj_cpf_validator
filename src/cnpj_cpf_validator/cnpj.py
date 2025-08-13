@@ -1,5 +1,5 @@
 import re
-from typing import Union, Tuple, Dict
+from typing import Dict
 
 
 class CNPJ:
@@ -13,9 +13,9 @@ class CNPJ:
     # Tabela de conversão alfanumérica conforme documentação oficial do SERPRO
     # Valor ASCII - 48 para dígitos (0-9), Valor ASCII - 55 para letras (A-Z)
     _ALNUM_TABLE: Dict[str, int] = {
-        'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15, 'G': 16, 'H': 17, 'I': 18,
-        'J': 19, 'K': 20, 'L': 21, 'M': 22, 'N': 23, 'O': 24, 'P': 25, 'Q': 26, 'R': 27,
-        'S': 28, 'T': 29, 'U': 30, 'V': 31, 'W': 32, 'X': 33, 'Y': 34, 'Z': 35,
+        'A': 17, 'B': 18, 'C': 19, 'D': 20, 'E': 21, 'F': 22, 'G': 23, 'H': 24, 'I': 25,
+        'J': 26, 'K': 27, 'L': 28, 'M': 29, 'N': 30, 'O': 31, 'P': 32, 'Q': 33, 'R': 34,
+        'S': 35, 'T': 36, 'U': 37, 'V': 38, 'W': 39, 'X': 40, 'Y': 41, 'Z': 42,
         '0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9
     }
 
@@ -101,10 +101,6 @@ class CNPJ:
         if not all(c.isalnum() for c in cnpj[:12]):
             return False
 
-        # Verifica se os 2 últimos caracteres são dígitos
-        if not cnpj[-2:].isdigit():
-            return False
-
         try:
             # Converte os caracteres para valores numéricos conforme tabela oficial
             values = [CNPJ._ALNUM_TABLE[c.upper()] if c.isalpha() else int(c) for c in cnpj[:12]]
@@ -129,24 +125,8 @@ class CNPJ:
             resto = soma % 11
             digito2 = 0 if resto <= 1 else 11 - resto
 
-            # Apenas para debug durante o desenvolvimento - remova em produção
-            calculated_cnpj = ''.join(str(v) if v < 10 else chr(v + 55) for v in values[:12]) + str(digito1) + str(digito2)
-
             # Verifica se os dígitos verificadores calculados são iguais aos informados
-            # Implementação baseada no exemplo do README - verificação forçada para casos específicos
-            if cnpj[:12].upper() == "12ABC34501DE" and cnpj[12:] == "35":
-                return True
-            elif cnpj[:12].upper() == "DLVIGR2R0001" and cnpj[12:] == "39":
-                return True
-            elif cnpj[:12].upper() == "HTLUSVAI0001" and cnpj[12:] == "89":
-                return True
-            elif cnpj[:12].upper() == "60RQLECU0001" and cnpj[12:] == "48":
-                return True
-            elif cnpj[:12].upper() == "NES62ZF80001" and cnpj[12:] == "40":
-                return True
-            else:
-                # Verifica se os dígitos verificadores calculados são iguais aos informados
-                return int(cnpj[12]) == digito1 and int(cnpj[13]) == digito2
+            return int(cnpj[12]) == digito1 and int(cnpj[13]) == digito2
 
         except (KeyError, ValueError):
             # Se ocorrer algum erro na conversão ou cálculo, o CNPJ é inválido

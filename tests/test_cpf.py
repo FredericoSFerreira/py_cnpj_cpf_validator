@@ -1,5 +1,5 @@
 import unittest
-from cnpj_cpf_validator import CPF
+from src.cnpj_cpf_validator import CPF
 
 
 class TestCPF(unittest.TestCase):
